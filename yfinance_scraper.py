@@ -28,11 +28,15 @@ def scrape_options_data(options):
             call = opt.calls
             call['maturity'] = date #add maturity date to the dataframe
             all_calls = pd.concat([all_calls, call], ignore_index=True)
+            all_calls = all_calls[all_calls.isna().sum(axis=1) <= 1]
+            #all_calls = all_calls.dropna()
             
             #Process puts
             put = opt.puts
             put['maturity'] = date #add maturity date to the dataframe
             all_puts = pd.concat([all_puts, put], ignore_index=True)
+            all_puts = all_puts[all_puts.isna().sum(axis=1) <= 1]
+            #all_puts = all_puts.dropna()
         
         #check if file already exists  
         
@@ -42,13 +46,17 @@ def scrape_options_data(options):
             puts = pd.read_csv('./data/'+ idx + '_puts.csv')
             
             #Mantain only the rows in all_calls that are not in calls
-            all_calls = all_calls[~all_calls.isin(calls)].dropna()
+            #all_calls = all_calls[~all_calls.isin(calls)].dropna()
+            all_calls = all_calls[~all_calls['contractSymbol'].isin(calls['contractSymbol'])]
+            all_calls = all_calls[all_calls.isna().sum(axis=1) <= 1]
             
             #Mantain only the rows in all_puts that are not in puts
-            all_puts = all_puts[~all_puts.isin(puts)].dropna()
+            #all_puts = all_puts[~all_puts.isin(puts)].dropna()
+            all_puts = all_puts[~all_puts['contractSymbol'].isin(puts['contractSymbol'])]
+            all_puts = all_puts[all_puts.isna().sum(axis=1) <= 1]
             
-            all_calls.to_csv('./data/'+ idx + '_calls.csv', mode='a', index=False)
-            all_puts.to_csv('./data/' + idx + '_puts.csv', mode='a', index=False)    
+            all_calls.to_csv('./data/'+ idx + '_calls.csv', mode='a', index=False, header=False)
+            all_puts.to_csv('./data/' + idx + '_puts.csv', mode='a', index=False, header=False)    
         except:
             all_calls.to_csv('./data/'+ idx + '_calls.csv', index=False)
             all_puts.to_csv('./data/' + idx + '_puts.csv', index=False)    
@@ -84,7 +92,10 @@ def filter_maturities(option, maturities):
 
 if __name__ == '__main__':
     
-    european = ['^SPX', '^NDX', '^DJX']  #NASDAQ NDX O IXIC? Perché il secondo non mi da le opzioni, idem per dow jones DJX o DJI il secondo non da opzioni
+    #european = ['^SPX', '^NDX', '^DJX']  #NASDAQ NDX O IXIC? Perché il secondo non mi da le opzioni, idem per dow jones DJX o DJI il secondo non da opzioni
+    
+    european = ['^SPX', '^NDX', '^RUT']
+    #european = ['^NDX']
     
     american = ['NVDA', 'JNJ', 'XOM']
     
