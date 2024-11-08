@@ -9,3 +9,11 @@ SPX - This is the S&P 500 index, which tracks the performance of 500 of the larg
 2) ^NDX vas bene per Nasdaq o devo prendere ^IXIC? Perche questo non cia opzioni?
 
 3) Nvidia, Jonson&Jonson e Exxon Mobil vanno bene? Sono tecnologia, farmacia e petrolio, quindi dovrebbero essere abbastanza diverse
+
+4) Devo prendermi i dati giornalmente per un mesetto?
+
+5) Il volume mi serve?
+
+6) Il mercato US in teoria é chiuso pero i dati continuano a cambiare, perché? E' il post market? Quando li prendo in caso?
+
+7) Mi servono le opzioni a paritá di scadenza e strike?
