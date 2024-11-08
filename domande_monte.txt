@@ -1,0 +1,11 @@
+SPX - This is the S&P 500 index, which tracks the performance of 500 of the largest publicly traded companies in the U.S.
+
+^NDX - This is the NASDAQ-100 index, which includes the 100 largest non-financial companies listed on the Nasdaq stock exchange, often with a strong focus on technology and growth-oriented stocks.
+
+^RUT - This is the Russell 2000 index, which tracks the performance of 2,000 small-cap companies in the U.S. stock market.
+
+1) Questi indici vanno bene? Perche ^DJX aveva poche opzioni e mi ammazzava il dataset, peró ^RUT si basa su roba un po diversa rispetto ai primi due
+
+2) ^NDX vas bene per Nasdaq o devo prendere ^IXIC? Perche questo non cia opzioni?
+
+3) Nvidia, Jonson&Jonson e Exxon Mobil vanno bene? Sono tecnologia, farmacia e petrolio, quindi dovrebbero essere abbastanza diverse
