@@ -1,0 +1,3 @@
+A partire dai dati di mercato di yahoo finance valutare quanto si discostano i prezzi delle opzioni europee ed americane dalla retta di regressione
+definita dalla put call parity equation, dato che per le prime vale l'uguaglianza e per le seconde la disuguaglianza. Valutare quante opzioni americane cadono
+in un certo intervallo di confidenza nell'intorno della retta.
