@@ -1,1 +1,1 @@
-1-Esistono future simili alle opzioni, cioé future di vendita e acquisto? Se sí ci potrebbe essere una specie di Put-Call Parity per i future?
+-Pagina 38/39 delle note perché prima usiamo la media campionaria e poi la varianza campionaria
