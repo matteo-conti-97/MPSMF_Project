@@ -1,1 +1,2 @@
 -Pagina 38/39 delle note perché prima usiamo la media campionaria e poi la varianza campionaria
+-Pagina 47 perche r_t(y1,..ym)=r_t(w1,..wm)
