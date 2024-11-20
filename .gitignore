@@ -1,3 +1,5 @@
 mpsmf_project
 .vscode
 .venv
+renv
+.Rprofile
