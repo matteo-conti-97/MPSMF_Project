@@ -1,0 +1,22 @@
+################ Consideriamo uno stock 
+1-Definisco u e d i modo che il prezzo sia uS_0 e dS_0 a caso (in generale vanno stimati dai dati storici)
+2-Verificare che è soddisfatta la condizione di non arbitraggio
+3-Si calcolano p e q le probabilità neutrali al rischio sulla base di u e di
+4-Si definisce il prezzo iniziale S_0 dello stock
+5-Si definisce il prezzo iniziale K_0 dello strike
+6-Si definisce N il numero di passi da fare nel CRR, cioè la profondità del reticolo
+7-Si fa il prezzo dello stock in un for con N passi su indice k costruendo una matrice di prezzi, ricordare che il prezzo dello stock è definito come S[j+1] [n-2] = S_0 * u^(n-k) * d^k
+
+################ Ora consideriamo una put americana
+1-Si fa il prezzo della put in un for con N passi su indice k costruendo una matrice di prezzi, ricordare che il prezzo della put americana al tempo n, cioè il valore di esercizio/esecuzione, è AP_n_payoff=(K-S_n)+
+2-Plottiamo e nel grafico ci stanno in nero il valore dello stock ed in rosso il valore d'esercizio
+3-Calcoliamo anche  il valore di mercato dell'opzione AP_n=max{AP_n_payoff, 1/1+rE*[AP_n+1|F_n]} cioè il massimo tra il valore di esercizio ed il valore di prosecuzione, questo si fa un passo alla volta tramite backward induction
+4-Plottiamo e nel grafico ci stanno in nero il valore dello stock ed in rosso il valore d'esercizio, in blu il valore prosecuzione ed in viola il valore di mercato dell'opzione (e.g se la esercito guadagno 1.402, se non la esercito MI ASPETTO un valore 3.7 e quindi non mi conviene esercitarla piuttosto me la vendo, e.g se la esercito guadagno 18, se non la esercito MI ASPETTO un valore 13 e quindi mi conviene esercitarla)
+
+################ Ora consideriamo una call americana e verifichiamo che di fatto sono uguali alle europee
+1-Si fa il prezzo della call in un for con N passi su indice k costruendo una matrice di prezzi, ricordare che il prezzo della call americana al tempo n, cioè il valore di esercizio/esecuzione, è AC_n_payoff=(S_n-K)+
+2-Plottiamo e nel grafico ci stanno in nero il valore dello stock ed in rosso il valore d'esercizio
+3-Calcoliamo anche  il valore di mercato dell'opzione AC_n=max{AC_n_payoff, 1/1+rE*[AC_n+1|F_n]} cioè il massimo tra il valore di esercizio ed il valore di prosecuzione, questo si fa un passo alla volta tramite backward induction
+4-Plottiamo e nel grafico ci stanno in nero il valore dello stock ed in rosso il valore d'esercizio, in blu il valore prosecuzione ed in viola il valore di mercato dell'opzione, come si vede non cè mai un nodo che ha valore di esercizio più alto del valore di prosecuzione e quindi non conviene mai esercitarla e quindi di fatto la uso come europea
+
+Da qui si vede che la put è una specie di assicurazione, mentre la call è una specie di leva finanziaria, se credo fortemente che il titolo salirà compro una call e scommetto su un guadagno maggiore non scelgo la put perchè dato che la call costa meno ne posso comprare di più. Se con la call va male perdo tutto, se con la put va male perdo solo la spesa dell'assicurazione.

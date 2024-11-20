@@ -1,0 +1,8 @@
+-S&P 500 Index, sul New York Stock Exchange (prime 500 capitalizzazione sul mercato americano) è un indice ponderato per 
+capitalizzazione di mercato di 500 azioni a grandi capitalizzazioni quotate negli Stati Uniti.
+Questo indice è un "aggregato" di titoli e si comporta come titolo, su questo titolo vengono emesse opzioni, facendo 
+"scommesse" su prezzamento e deprezzamento di tale indice, alla scadenza dell'opzione non mi viene dato il titolo perchè è 
+un aggregato non acquisibile, mi viene data solo la differenza monetaria tra il valore K ed il valore dell'indice sul 
+mercato alla scadenza o al più perdo quanto avevo pagato l'opzione all'inizio.
+Su yahoo finance ci fanno vedere anche i dati storici e le opzioni disponibili, su di esse cercheremo di fare la stima dei 
+parametri del modello mu e sigma.

@@ -1,3 +1,8 @@
 A partire dai dati di mercato di yahoo finance valutare quanto si discostano i prezzi delle opzioni europee ed americane dalla retta di regressione
 definita dalla put call parity equation, dato che per le prime vale l'uguaglianza e per le seconde la disuguaglianza. Valutare quante opzioni americane cadono
 in un certo intervallo di confidenza nell'intorno della retta.
+
+Per gli intervalli di confidenza e per il CRR ci serve sapere la volatilitá del titolo su cui le opzioni si basano, per calcolarla o facciamo la varianza campionaria oppure calcoliamo quella sul
+lungo periodo con la Garch.
+
+Inoltre sempre per il CRR ci serve il rendimento non rischioso, quello lo calcolo dai dati dei bond della FED

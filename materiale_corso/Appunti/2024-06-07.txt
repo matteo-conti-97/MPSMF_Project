@@ -1,0 +1,18 @@
+In generale con opzioni a scadenza lunga si preferisce il modello multiperiodale, mentre per quelle a scadenza breve può andare bene anche un modello monoperiodale.
+
+############### Valutazione put-call parity eq con opzioni europee
+- C_T-P_T=S_T-K di base è questa
+- Se posso applicare il CRR toy, applicando la speranza condizionata, al tempo 0 si ha C_0-P_0=S_0-K/(1+r_T) in cui in K è noto a scadenza perchè rimane costante
+- Uno dei primi problemi è che a parità di scadenza T potrei avere che una call e una put a parità di strike K potrebbero avere prezzi iniziali che sono stati fatti in tempi diversi e quindi non C_0!=P_0, una possibilità è vedere se ce ne sono a parità di strike e a parità di data in cui è stato fatto il prezzo iniziale, in questo modo si estraggono delle opzioni che hanno lo stesso ciclo di vita iniziano nello stesso istante T_0 e scadono nello stesso istante T
+- Costruiamo quindi un dataset con le colonne [K, C_0, P_0] in cui K è comune a put e call e C_0 e P_0 sono i prezzi iniziali delle opzioni
+- Ora consideriamo la regressione lineare con y=C_0-P_0 e x=K, si vanno a cercare i coefficienti a e b che minimizzano la distanza della retta tra tutti punti date dalle coppie (x,y) nel dataset. Plottando la retta su scatterplot si vede che avvicinandosi con lo strike al prezzo di quel giorno di mercato preso in considerazione i punti si accumulano sulla retta.
+- La distanza tra l'ordinate del punto e la retta sulla regressione si dice residuo, per valutare la bontà della retta si considerano i quantili dei residui (la media non ha senso perchè è sempre 0)
+- La retta ci da la stima dei coefficienti b=S_0 e a=-(1/1+r_t), la deviazione standard, il t value ed il p value della student associati ai valori stimati cioè il necessario per definire l'intervallo di confidenza ed i test di ipotesi, t value e p value sono significativi solo se è possibile far vedere che i residui sono gaussianamente distribuiti
+- Poi ci tiriamo fuori r_T e lo usiamo per tirarci fuori il tasso annuo con (1+r_A)^(T/365.2425)=1+r_T esprimendo T in giorni (ci è uscito un r_A stimato un po schifoso del 54% il reale è 6%, probabilmente è dovuto al fatto di usare un modello monoperiodale su tipo 60 giorni)
+-Un altra possibilità è usare la regressione per stimare solo a, tanto b=S_0 è noto dal mercato, per farlo la y diventa y=C_0-P_0+S_0, occorre però forzare b=0 (almeno in R), in questo modo la stima di r_A diventa più precisa, in particolare la stima diventa 8.3% mentre il reale è 6%, la differenza che cè è in parte dovuta al fatto che nel modello si può sostituire la probabilità neutrale al rischio con la probabilità reale a patto di non considerare un tasso privo di rischio (come fatto fino ad ora) bensì un tasso che tiene conto del rischio
+
+
+############### Calibrazione CRR multiperiodale
+- Occorre stimare u, d e la p neutrale al rischio dai dati del mercato
+- Come prima cosa costruiamo il processo dei rendimenti logaritmici ln(S_n/S_{n-1}) i quali si assumono indipendenti ed identicamente normalmente distribuiti (media, varianza vedi note), e quindi S_n=S_{n-1} è una v.a ottenuta dall'esponenziale della normale
+- ...Vedi note per la stima di u, d e p effettiva si ottengono 2 equazioni in 3 incognite occorre quindi scegliere una relazione tra u e d per poter risolvere il sistema, nel CRR d=1/u.
