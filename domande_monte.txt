@@ -1,8 +1,7 @@
--Pagina 38/39 delle note perché prima usiamo la media campionaria e poi la varianza campionaria
--Pagina 47 perche r_t(y1,..ym)=r_t(w1,..wm)
--Perché ci serve il CRR?
+-Pagina 38/39 delle note perché prima usiamo la media campionaria e poi la varianza campionaria->Per stimare la varianza
+-Pagina 47 perche r_t(y1,..ym)=r_t(w1,..wm) -> Perche dim pag 46
+-Perché ci serve il CRR?->Perche la put-call nell'istante finale è model free, ma in 0 no e quindi per portarla indietro nel tempo mi serve il
 -Punti focali di GARCH tiene conto, nella stima della volatilitá, del fatto che ci sono burst di picchi alti e bassi nel rendimento, questo riesce a farlo
 con un termine che tiene conto dei burst passati (tramite il quadrato della differenza degli errori passati) ed un termine che tiene conto del clustering (tramite il quadrato delle volatilitá passate).
-Ma quindi quello che vuole fare é istante per istante dato il passato N-1 predire la volatilitá per N? Non ho capito chi é l'input e chi é l'output del modello. I parametri come li stimo?
--Devo valiudare che gli errori sono distribuiti normalmente? 
+Ma quindi quello che vuole fare é istante per istante dato il passato N-1 predire la volatilitá per N? Non ho capito chi é l'input e chi é l'output del modello. I parametri come li stimo? -> Di fatto fa tutto la libreria, servirebbe dargli un sigma 0 ma fa lei anche quello, io con i dati fino all'11 novembre ci calcolo sigma 0 e poi con quelli dall 11 al 30 ci calcolo la volatilita di lungo periodo
 -Se al posto di GARCH ci buttiamo una bella RRN LSTM?
