@@ -1,0 +1,61 @@
+1-The fGarch::garchFit function in R is used to fit a GARCH (Generalized Autoregressive Conditional Heteroskedasticity) model to a time series. GARCH models are widely used in financial econometrics to model and forecast volatility clustering in financial returns.
+
+Let’s break down the call to fGarch::garchFit in detail:
+
+garchFit Function Overview
+Purpose:
+To estimate the parameters of a GARCH model based on the provided data. It uses numerical optimization to maximize the likelihood of the model.
+
+Key Components of the Call:
+formula = ~garch(1,1)
+
+Specifies the structure of the GARCH model:
+1,1 means:
+1 lag of the variance (GARCH term).
+1 lag of the squared residuals (ARCH term).
+This is the simplest and most common GARCH model, denoted as 
+GARCH
+(
+1
+,
+1
+)
+GARCH(1,1).
+data = y
+
+The input data (usually a numeric vector or time series) to which the GARCH model is fitted. This typically represents financial returns or other time-series data.
+init.rec = "mci"
+
+Specifies the method for initializing the recursion for conditional variances.
+"mci" (Mean-Conditioned Initialization) uses the unconditional variance for initialization. It’s a common default.
+cond.dist = "norm"
+
+Specifies the conditional distribution of the residuals:
+"norm" assumes a normal distribution for the residuals.
+Alternatives include "std" (Student-t) or "ged" (Generalized Error Distribution) for capturing fat tails.
+include.mean = FALSE
+
+Indicates whether to include a mean term in the model. Here, the mean is set to 0 (no mean term).
+include.skew = FALSE
+
+Indicates whether to include a skew parameter in the conditional distribution. Skewness allows for asymmetric distributions but is not included here.
+include.shape = FALSE
+
+Indicates whether to estimate the shape parameter for the conditional distribution.
+For example, in a Student-t or GED distribution, this would control the tail behavior.
+Here, it’s not included (i.e., the conditional distribution is symmetric and standard).
+trace = TRUE
+
+Controls whether to print progress information during the optimization process. TRUE enables detailed feedback.
+algorithm = "lbfgsb"
+
+Specifies the optimization algorithm used for parameter estimation:
+"lbfgsb" refers to a quasi-Newton method with box constraints.
+This is a robust and efficient algorithm for parameter optimization.
+
+2- #parameter
+omega_bis <- as.numeric(fGarch::coef(fGARCH_1_1)[1])
+alpha1_bis <- as.numeric(fGarch::coef(fGARCH_1_1)[2])
+beta1_bis <- as.numeric(fGarch::coef(fGARCH_1_1)[3])
+
+3-fGarch::volatility(fGARCH_1_1, type="h") # Conditional volatility
