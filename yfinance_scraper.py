@@ -53,35 +53,6 @@ def scrape_options_data(options, today):
         all_calls.to_csv('./data/raw/' + today + '/' + today + '_' + idx + '_calls.csv', index=False)
         all_puts.to_csv('./data/raw/' + today + '/' + today + '_' + idx + '_puts.csv', index=False)
         
-            
-        
-
-def get_equal_maturities_list(option1, option2):
-    
-    calls = pd.read_csv('./data/'+ option1 + '_calls.csv')
-    maturities1 = calls['maturity'].unique()
-    
-    calls = pd.read_csv('./data/'+ option2 + '_calls.csv')
-    maturities2 = calls['maturity'].unique()
-    
-    #Find the common maturities
-    common_maturities = []
-    for maturity1 in maturities1:
-        for maturity2 in maturities2:
-            if maturity1 == maturity2:
-                common_maturities.append(maturity1)
-    
-    return common_maturities
-
-def filter_maturities(option, maturities):
-    calls = pd.read_csv('./data/'+ option + '_calls.csv')
-    puts = pd.read_csv('./data/'+ option + '_puts.csv')
-    
-    calls = calls[calls['maturity'].isin(maturities)]
-    puts = puts[puts['maturity'].isin(maturities)]
-    
-    calls.to_csv('./data/'+ option + '_calls_same_maturity.csv', index=False) 
-    puts.to_csv('./data/' + option + '_puts_same_maturity.csv', index=False)
 
 
 if __name__ == '__main__':
@@ -108,26 +79,3 @@ if __name__ == '__main__':
         
     print('Scraping completed')
     
-    """ #Get common maturities
-    common_maturities1 = get_equal_maturities_list(european[0], american[0])
-    common_maturities2 = get_equal_maturities_list(european[0], american[1])
-    common_maturities3 = get_equal_maturities_list(european[0], american[2])
-    
-    common_maturities4= get_equal_maturities_list(european[1], american[0])
-    common_maturities5 = get_equal_maturities_list(european[1], american[1])
-    common_maturities6 = get_equal_maturities_list(european[1], american[2])
-    
-    common_maturities7 = get_equal_maturities_list(european[2], american[0])
-    common_maturities8 = get_equal_maturities_list(european[2], american[1])
-    common_maturities9 = get_equal_maturities_list(european[2], american[2])
-    
-    #Get only common maturities accross all the common maturities lists
-    common_maturities = list(set(common_maturities1) & set(common_maturities2) & set(common_maturities3) & 
-                             set(common_maturities4) & set(common_maturities5) & set(common_maturities6) & 
-                             set(common_maturities7) & set(common_maturities8) & set(common_maturities9))
-    
-    for option in european:
-        filter_maturities(option, common_maturities)
-    
-    for option in american:
-        filter_maturities(option, common_maturities) """
