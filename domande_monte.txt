@@ -10,3 +10,4 @@ Ma quindi quello che vuole fare é istante per istante dato il passato N-1 predi
 -Per i tassi risk free prendo tutti i dati storici e faccio la media?
 -Per la last trade date mi interessa prendere nel giorno i-esimo i titoli che ha paritá di scadenza hanno stessa last trade date? Questo per ogni giorno
 Se si come definisco la data che voglio? Oppure prendo tutti gli insiemi? Mi interessa l'uguaglianza della last trade date tra put e call dello stesso giorno o anche tra call e call?
+-Per la volatilitá di lungo periodo il test set é novembre? oppure novembre sono i dati "veri" e devo farmi test set e training fino a fine ottobre
