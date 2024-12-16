@@ -1,0 +1,1 @@
+I test di Ljung-Box sono per verificare la presenza di autocorrelazione in una serie temporale

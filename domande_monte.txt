@@ -1,13 +1,30 @@
 -Pagina 38/39 delle note perché prima usiamo la media campionaria e poi la varianza campionaria->Per stimare la varianza
+
+
 -Pagina 47 perche r_t(y1,..ym)=r_t(w1,..wm) -> Perche dim pag 46
+
+
 -Perché ci serve il CRR?->Perche la put-call nell'istante finale è model free, ma in 0 no e quindi per portarla indietro nel tempo mi serve il
+
+
 -Punti focali di GARCH tiene conto, nella stima della volatilitá, del fatto che ci sono burst di picchi alti e bassi nel rendimento, questo riesce a farlo
 con un termine che tiene conto dei burst passati (tramite il quadrato della differenza degli errori passati) ed un termine che tiene conto del clustering (tramite il quadrato delle volatilitá passate).
 Ma quindi quello che vuole fare é istante per istante dato il passato N-1 predire la volatilitá per N? Non ho capito chi é l'input e chi é l'output del modello. I parametri come li stimo? -> Di fatto fa tutto la libreria, servirebbe dargli un sigma 0 ma fa lei anche quello, io con i dati fino all'11 novembre ci calcolo sigma 0 e poi con quelli dall 11 al 30 ci calcolo la volatilita di lungo periodo
+
+
 -Se al posto di GARCH ci buttiamo una bella RRN LSTM?
 
 
--Per i tassi risk free prendo tutti i dati storici e faccio la media?
+-Per i tassi risk free prendo tutti i dati storici e faccio la media?->Ci interessano i tassi di novembre lo prendiamo a inizio mese e lo consideriamo costante per il mese, al più mi prendo la media -> FATTO
+
+
 -Per la last trade date mi interessa prendere nel giorno i-esimo i titoli che ha paritá di scadenza hanno stessa last trade date? Questo per ogni giorno
 Se si come definisco la data che voglio? Oppure prendo tutti gli insiemi? Mi interessa l'uguaglianza della last trade date tra put e call dello stesso giorno o anche tra call e call?
--Io ho usato garch(1,1) con fgarch con i dati fino a novembre utilizzando il log ret calcolati come differenza dei logaritmi della chiusura del giorno corrente e di quello passato, mi sono tirato fuori i Omega, Alpha1, Beta1 ora che devo farci? Come la calcolo la volatilità?
+Ci interessa che nella stessa giornata ci siano sia Put che Call trattate nella stessa giornata o al più giorni vicini. Se ci sono opzioni molto distanti ne scelgo uno dei due e l'altro o lo sconto o lo butto. Una 50ina vanno bene 
+
+-Io ho usato garch(1,1) con fgarch con i dati fino a novembre utilizzando il log ret calcolati come differenza dei logaritmi della chiusura del giorno corrente e di quello passato, mi sono tirato fuori i Omega, Alpha1, Beta1 ora che devo farci? Come la calcolo la volatilità? -> Training fino a inizio novembre il test dopo, o lo faccio a mano seguendo la definizione oppure cè forecast che si pija il modello e il test set.
+
+
+-Per verificare il risultato prendo i residui del modello e verifico che siano scorrelati con i test di ljung box,inoltre verifico che siano eteroschedastici con i test di White e Breusch-Pagan. Per l'accuratezza una volta che ho la predizione sul test set devo fare i test di accuratezza che stanno nei file forniti da monte, le prime 6 e le ultime 2.
+
+-La varianza di lungo periodo si calcola come omega/1-alfa-beta, credo con i parametri del modello al 31 ottobre?
