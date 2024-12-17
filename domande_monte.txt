@@ -27,4 +27,8 @@ Ci interessa che nella stessa giornata ci siano sia Put che Call trattate nella 
 
 -Per verificare il risultato prendo i residui del modello e verifico che siano scorrelati con i test di ljung box,inoltre verifico che siano eteroschedastici con i test di White e Breusch-Pagan. Per l'accuratezza una volta che ho la predizione sul test set devo fare i test di accuratezza che stanno nei file forniti da monte, le prime 6 e le ultime 2.
 
+-Stepsize in MASE che ci metto?
+
 -La varianza di lungo periodo si calcola come omega/1-alfa-beta, credo con i parametri del modello al 31 ottobre?
+
+-Le metriche di accuratezza sembrano ok, la MPE è un po strana, lo sono anche le predizioni
