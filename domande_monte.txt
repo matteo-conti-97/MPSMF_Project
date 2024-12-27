@@ -40,4 +40,4 @@ FATTE
 
 -Per farmi la put call parity il dataset come me lo costruisco? Per ogni giornata e per ogni titolo mi trovo tutte le combinazioni di put e call compatibili?
 
--Ma la retta che tiro fuori dalla put-call parity come la tiro fuori? Mi metto in T=0 e scrivo l'equazione con i dati "veri"? Cioè faccio y=aX+b con y=C_0-P_0, x=K, a=-1/(1+r_T) e b=S_0 
+-Ma la retta che tiro fuori dalla put-call parity come la tiro fuori? Mi metto in T=0 e scrivo l'equazione con i dati "veri"? Cioè faccio y=aX+b con y=C_0-P_0, x=K, a=-1/(1+r_T) e b=S_0? E per i giorni successivi uso la stessa retta? Le opzioni potrebbero essere diverse, la ritraccio da capo con i dati veri di T=t?
