@@ -29,6 +29,15 @@ Ci interessa che nella stessa giornata ci siano sia Put che Call trattate nella 
 
 -Stepsize in MASE che ci metto?
 
--La varianza di lungo periodo si calcola come omega/1-alfa-beta, credo con i parametri del modello al 31 ottobre?
+-La varianza di lungo periodo si calcola come omega/1-alfa-beta, credo con i parametri del modello al 31 ottobre? -> SI
+FATTE
 
--Le metriche di accuratezza sembrano ok, la MPE è un po strana, lo sono anche le predizioni
+
+
+-Il tasso privo di rischio dato che sto lavorando sul mese di novembre, uso quello mensile nel CRR o necessito di quello annuale?
+
+-Script Options riga 1334, volevo fare questo come progetto
+
+-Per farmi la put call parity il dataset come me lo costruisco? Per ogni giornata e per ogni titolo mi trovo tutte le combinazioni di put e call compatibili?
+
+-Ma la retta che tiro fuori dalla put-call parity come la tiro fuori? Mi metto in T=0 e scrivo l'equazione con i dati "veri"? Cioè faccio y=aX+b con y=C_0-P_0, x=K, a=-1/(1+r_T) e b=S_0 
