@@ -34,10 +34,13 @@ FATTE
 
 
 
--Il tasso privo di rischio dato che sto lavorando sul mese di novembre, uso quello mensile nel CRR o necessito di quello annuale?
+-Il tasso privo di rischio dato che sto lavorando sul mese di novembre, nel CRR uso quello mensile o necessito di quello annuale?
 
 -Script Options riga 1334, volevo fare questo come progetto
 
--Per farmi la put call parity il dataset come me lo costruisco? Per ogni giornata e per ogni titolo mi trovo tutte le combinazioni di put e call compatibili?
 
--Ma la retta che tiro fuori dalla put-call parity come la tiro fuori? Mi metto in T=0 e scrivo l'equazione con i dati "veri"? Cioè faccio y=aX+b con y=C_0-P_0, x=K, a=-1/(1+r_T) e b=S_0? E per i giorni successivi uso la stessa retta? Le opzioni potrebbero essere diverse, la ritraccio da capo con i dati veri di T=t?
+-Ma a noi ci interessano solo le opzioni che scadono il 27?
+
+-Per farmi la put call parity il dataset come me lo costruisco? Per ogni giornata e per ogni titolo mi trovo tutte le combinazioni di put e call compatibili? E.g la stessa call appare più volte associata a put diverse
+
+-Ma la retta che tiro fuori dalla put-call parity come la tiro fuori? Mi metto in T=0 e scrivo l'equazione con i dati "veri"? Cioè faccio y=aX+b con y=C_0-P_0, x=K, a=-1/(1+r_T) e b=S_0? Devo tracciarla anche per gli altri giorni? Se si per questi faccio y=C_T-P_T, x=K, a=-1 e b=S_T?
