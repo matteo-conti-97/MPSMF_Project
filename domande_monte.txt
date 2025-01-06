@@ -38,7 +38,6 @@ FATTE
 
 -Script Options riga 1334, volevo fare questo come progetto
 
-
 -Ma a noi ci interessano solo le opzioni che scadono il 27?
 
 -Per farmi la put call parity il dataset come me lo costruisco? Per ogni giornata e per ogni titolo mi trovo tutte le combinazioni di put e call compatibili? E.g la stessa call appare più volte associata a put diverse
