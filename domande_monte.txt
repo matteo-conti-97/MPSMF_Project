@@ -45,4 +45,12 @@ FATTE
 -Ma la retta che tiro fuori dalla put-call parity come la tiro fuori? Mi metto in T=0 e scrivo l'equazione con i dati "veri"? Cioè faccio y=aX+b con y=C_0-P_0, x=K, a=-1/(1+r_T) e b=S_0? Devo tracciarla anche per gli altri giorni? Se si per questi faccio y=C_T-P_T, x=K, a=-1 e b=S_T?
 
 -Ma per le americane traccio la retta, metto i punti e traccio anche l'intervallo AC_0-S_0+K >= AP_0 >= AC_0+K/(1+r)^N-S_0 ? Che riformulandolo diventa
--AC_0+S_0-K <= -AP_0 <= -AC_0-K/(1+r)^N+S_0 da cui S_0-K <= AC_0-AP_0 <= S_0+K/(1+r)^N
+-AC_0+S_0-K <= -AP_0 <= -AC_0-K/(1+r)^N+S_0 da cui S_0-K <= AC_0-AP_0 <= S_0-K/(1+r)^N 
+
+-I tassi risk free presi da qui https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_bill_rates&field_tdr_date_value_month=202412 sono annualizzati per portarlo a un mese lo devo dividere per 12
+
+-Per costruirmi il dataset con tuple del tipo (put, call, strike) potrei avere che la stessa call C_i è compatibile con più put P_i io in tal caso sto facendo la join degli insiemi {(put, strike)}, {(call, strike)} quindi per dire se ho (c_1, K), (p_1, K) e (p_2, K) nel dataset finale avrò due righe in cui compare c1 cioè (c_1, p_1, K), (c_2, p_2, K), è corretta questa cosa? -> Non esiste questa casistica il codice del derivato è lo stesso cambia il volume
+
+FATTE
+
+-N nella put call per le opzioni americane è N periodo di osservazione giusto? Perchè si parla di contrazioni, quindi nel nostro caso 19 giorni
