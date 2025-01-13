@@ -54,3 +54,5 @@ FATTE
 FATTE
 
 -N nella put call per le opzioni americane è N periodo di osservazione giusto? Perchè si parla di contrazioni, quindi nel nostro caso 19 giorni
+
+-Mi aspetterei che la retta di regressione tirata fuori da AC_0-AP_0 = S_0-K stia sempre sotto a quella data da AC_0-AP_0 = S_0-K/(1+r)^N, ma non è cosi, è normale? E' normale che in JNJ la retta C_0-AP_0 = S_0-K/(1+r)^N si incroci con la retta C_0-AP_0 = S_0-K/(1+r), secondo me è per i pochi dati
